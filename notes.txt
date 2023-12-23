@@ -1,0 +1,69 @@
+In React, when you import an image using the `import` statement, it is treated as a module, and the value assigned to the variable (`LOGO` in this case) is a reference to that module. This allows you to use it as a variable in your code.
+
+On the other hand, when you directly use the path as a string in the `src` attribute of the `img` tag, React treats it as a regular string and doesn't handle it as a module.
+
+In your working example:
+
+```jsx
+import LOGO from "./images/igk_logo.png"
+<img className="icon" src={LOGO} alt="Food Logo"/>
+```
+
+You're using the `LOGO` variable, which holds the imported module, as the `src` attribute. This is the correct way to reference images in React when using the `import` statement.
+
+In the non-working example:
+
+```jsx
+<img className="icon" src="./images/igk_logo.png" alt="Food Logo"/>
+```
+
+You're directly using the string path as the `src` attribute. React doesn't handle this string as a module, and it may not be able to resolve the path correctly.
+
+To fix the non-working example, you should import the image using the `import` statement and use the variable in the `src` attribute, as shown in the first example.
+
+
+
+Props are normal arguments to a function
+
+Config driver UI: Controlling UI using config(data). Data different for Delhi,Kolkata,etc(like they might have different offers)
+
+
+
+optional chaining?
+
+
+2 TYPES OF EXPORTS/IMPORT
+    -DEFAULT EXPORT
+        export default component;
+        import Component from "path";
+    -NAMED EXPORT   
+        export const component;
+        import {Component} from "path";
+
+
+React is only good at doing efficient DOM operations. That's how it makes app fast. The bundling and tree shaking and stuff is done by parcel. Both contribute in making the app fast.
+
+
+Reconciliation Algorithm(after React16 came in React Fiber which is new way of finding diff between DOMs and updating UI)
+
+         0 (res container)          0(res container)
+   /  /  |  \   \               /   |   \
+  0   0   0  0   0    ->        0   0    0
+  (restaurant cards)            (restaurant cards)
+
+Diff algo finds the difference between old virtual DOM and new virtual DOM,and then calculate it and update the DOM on every render cycle
+
+
+Virtual DOM is representation of actual DOM(actual dom -> the tags like <div></div>)
+virtual DOM is those react elements,the objects(when we React.createElement or JSX,they are treated as objects(which later converts to HTML code).It is the representation of actual DOM.)
+
+Every time state variable changes, React re-renders the UI.
+
+
+When we write suppose const [res, setRes] = useState(res);
+and as soon as we call setRes, React will find the diff using diff algo and re-render the UI.
+Btw,  [res, setRes] is basically array destructuring, coz useState returns array.
+Example through normal variable:
+it's like const [res,setRes] = arr;
+and res = arr[0]
+while setRes = arr[1]
