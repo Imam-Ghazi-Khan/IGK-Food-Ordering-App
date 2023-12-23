@@ -7,6 +7,8 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
+    background-color: rgb(182, 205, 228);
+
 }
 
 .logo{
@@ -24,6 +26,8 @@
     padding: 10px;
     margin: 10px;
 }
+
+
 
 .res-container{
     padding-left: 50px;
@@ -62,4 +66,11 @@
 .filter-btn{
     margin: 10px;
     cursor: pointer;
+    background-color: rgb(91, 129, 168);
+    border: none;
+    color: white;
+    height: 40px;
+    width: 250px;
+    border-radius: 25px;
+    font-size: 17px;
 }
