@@ -16,10 +16,17 @@
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy":"npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "author": "Imam Ghazi Khan",
   "license": "ISC",
-  "description": ""
+  "description": "/**",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imam-Ghazi-Khan/IGK-Food-Ordering-App.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Imam-Ghazi-Khan/IGK-Food-Ordering-App/issues"
+  }
 }
