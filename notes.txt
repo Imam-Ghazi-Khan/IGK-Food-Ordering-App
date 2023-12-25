@@ -67,3 +67,7 @@ Example through normal variable:
 it's like const [res,setRes] = arr;
 and res = arr[0]
 while setRes = arr[1]
+
+
+
+useEffect is called after the render cycle, that is, as soon as the component is fully rendered, useEffect is called(if we console.log after useEffect code, console.log will be executed first, then at last useEffect)
