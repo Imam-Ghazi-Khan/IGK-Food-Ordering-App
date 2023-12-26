@@ -86,3 +86,27 @@ Also, on every type in search,the useState variable is changing hence component 
 WHENEVER STATE VARIABLE CHANGES, REACT TRIGGERS RECONCILIATION CYCLE (RE-RENDERS THE COMPONENT)
 
 REACT IS RE-RENDERING WHOLE COMPONENT BUT ONLY UPDATING INPUT BOX VALUE INSIDE THE DOM.
+
+if no dependency array => useEffect is called on every render
+if dependency array is empty = [] =>  useEffect is called on initial render(just once)
+if dependency array is [a_useState_variable] => useEffect is called everytime a_useState_variable is updated
+
+useState is used to create local state variable inside functional component, so don't write it outside component
+Always call it on top, since JS is a syncronous programming language, (runs line by line)
+Never create useState inside if-else(can create inconsistencies)
+
+Router:
+Configuration is the information that tells what happens on a specific path(like /about)
+
+React router dom gives a beautiful error page on invalid route but we can create our own by using errorElement
+
+If a function starts with use it means it's hooks(acc to React convention)
+
+Dont't use anchor tag to go to route since it refereshes whole page.
+Instead use Link from react router dom library.
+It won't reload whole page
+
+
+Routing
+    -Client Side Routing:on app load, all components get loaded and only components interchange
+    -Server Side Routing:Does a network call and fetches html

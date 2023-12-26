@@ -18,7 +18,7 @@ const Body = () => {
             setListOfRestaurants(removedFirst2RestaurantCards);
             setCachedRestaurants(removedFirst2RestaurantCards);
         }catch(error){
-            console.log("api fetch failed,hence loading mock data");
+            console.log("api fetch failed due to cors error,hence loading mock data(use cors extension if you need live data)");
             const dummyDataIfAPIFails = dataIfAPIFails?.data?.cards?.slice(2);
             setListOfRestaurants(dummyDataIfAPIFails);
             setCachedRestaurants(dummyDataIfAPIFails);
