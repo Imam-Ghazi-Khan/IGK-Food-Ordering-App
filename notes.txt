@@ -71,3 +71,18 @@ while setRes = arr[1]
 
 
 useEffect is called after the render cycle, that is, as soon as the component is fully rendered, useEffect is called(if we console.log after useEffect code, console.log will be executed first, then at last useEffect)
+
+useState variable can be const coz on change it re-renders whole component and it creates new instance of variable,new variable is created with the new value
+
+if only button state changing, then using Reconciliation algo, it will find difference and only change the button.
+
+whenn we do value = {a_useState_variable}
+then that useState variable is bind to input box(search box)
+so on typing value wont change since useState variable initialized with empty string
+we need onChange handler for it.
+Also, on every type in search,the useState variable is changing hence component is re-rendering, React is re-rendering the whole component
+
+
+WHENEVER STATE VARIABLE CHANGES, REACT TRIGGERS RECONCILIATION CYCLE (RE-RENDERS THE COMPONENT)
+
+REACT IS RE-RENDERING WHOLE COMPONENT BUT ONLY UPDATING INPUT BOX VALUE INSIDE THE DOM.
