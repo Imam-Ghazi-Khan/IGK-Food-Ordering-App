@@ -1,5 +1,4 @@
 export const CDN_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_588,h_320,c_fill/";
-import { itemCardsDataIfAPIFails } from './constants';
 
 export const SWIGGY_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5830002&lng=88.3372909&collection=90964&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&carousel=true&third_party_vendor=1"
 
