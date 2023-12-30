@@ -1,7 +1,8 @@
-import RestaurantCard from "./Restaurant";
-import dataIfAPIFails, { SWIGGY_URL1, SWIGGY_URL2 } from "../utils/constants";
+import RestaurantCard from "./RestaurantCard";
+import dataIfAPIFails, { SWIGGY_URL, SWIGGY_URL1, SWIGGY_URL2 } from "../utils/constants";
 import { useEffect, useState } from "react";
 import dataIfAPIFails from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     const [listOfRestaurants,setListOfRestaurants] = useState([]);
@@ -11,7 +12,7 @@ const Body = () => {
    useEffect(()=>{
     const fetchData = async () => {
         try{
-            const data = await fetch(SWIGGY_URL2);
+            const data = await fetch(SWIGGY_URL);
             const json = await data.json();
             //Optional Chaining
             const removedFirst2RestaurantCards = json?.data?.cards?.slice(2);
@@ -73,7 +74,7 @@ const Body = () => {
                 {
                   listOfRestaurants.map( restaurantObj => {
                     const restaurant = restaurantObj?.card?.card?.info
-                    return <RestaurantCard key={restaurant?.id} resData={restaurant}/>
+                    return <Link className="link" to={"/restaurants/"+restaurant?.id} key={restaurant?.id}><RestaurantCard resData={restaurant}/></Link>
                 }) 
                 }
             </div>

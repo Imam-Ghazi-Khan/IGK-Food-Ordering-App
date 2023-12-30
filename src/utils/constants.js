@@ -1,10 +1,9 @@
 export const CDN_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_588,h_320,c_fill/";
+import { itemCardsDataIfAPIFails } from './constants';
 
-export const SWIGGY_URL1 = '/api?lat=22.5830002&lng=88.3372909&collection=90964&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&carousel=true&third_party_vendor=1'
+export const SWIGGY_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5830002&lng=88.3372909&collection=90964&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&carousel=true&third_party_vendor=1"
 
-export const SWIGGY_URL2 = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5830002&lng=88.3372909&collection=90964&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&carousel=true&third_party_vendor=1"
-
-
+export const SWIGGY_URL_MENU = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.6263806&lng=88.3555025&restaurantId="
 
 
 const dataIfAPIFails = {
@@ -1115,6 +1114,42 @@ const dataIfAPIFails = {
 }
   
 
+export const menuDataIfAPIFails = {
+    info:{"id": "149560",
+    "name": "Pizza Hut",
+    "cuisines": [
+    "Italian",
+    "Pizzas"
+    ],
+    "costForTwoMessage":"Rs 218 for two"
+  }
+}
+
+export const itemCardsDataIfAPIFails = [
+  {
+    card: {
+      info: {
+        name: "Margerita"
+      }
+    }
+  },
+  {
+    card: {
+      info: {
+        name: "4 cheese pizza"
+      }
+    }
+  },
+  {
+    card: {
+      info: {
+        name: "Onion Pizza"
+      }
+    }
+  }
+];
+
+      
 
 export default dataIfAPIFails;
 

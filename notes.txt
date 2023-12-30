@@ -110,3 +110,5 @@ It won't reload whole page
 Routing
     -Client Side Routing:on app load, all components get loaded and only components interchange
     -Server Side Routing:Does a network call and fetches html
+
+    behind the scenes Link  uses anchor tag.....Link(given by react-router-dom) is a wrapper around anchor tag 

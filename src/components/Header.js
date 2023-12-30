@@ -10,16 +10,16 @@ const Header = () => (
         <div className="nav-items">
             <ul>
                 <li>
-                    <Link to={"/"}>Home</Link>
+                    <Link className='link' to={"/"}>Home</Link>
                 </li>
                 <li>
-                    <Link to={"/about"}>About</Link>
+                    <Link className='link' to={"/about"}>About</Link>
                 </li>
                 <li>
-                    <Link to={"/contact"}>Contact Us</Link>
+                    <Link className='link' to={"/contact"}>Contact Us</Link>
                 </li>
                 <li>
-                    <Link to={"/cart"}>Cart</Link>
+                    <Link className='link' to={"/cart"}>Cart</Link>
                 </li>
             </ul>
         </div>
