@@ -236,3 +236,41 @@
   }
   
   
+
+  @media (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav-items > ul {
+      padding: 0;
+    }
+  
+    .res-container {
+      padding-left: 10px; /* Adjust the padding for smaller screens */
+    }
+  
+    .filter {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .filter-btn,
+    .search-btn {
+      width: 100%;
+    }
+  
+    .search-box {
+      width: calc(100% - 24px);
+      margin: 12px;
+    }
+  
+    /* Adjust the width for the Top Rated button */
+    .filter-btn {
+      max-width: 250px; /* Set your desired maximum width */
+      width: 100%;
+    }
+  }
+
+  
