@@ -10,7 +10,7 @@ const Cart = () => {
         <div className="cart-item">
           <span className="item-name">Item Name</span>
           <div className = "itemPriceAndQuantity">
-            <span className="item-price">$10.99</span>
+            <span className="item-price">₹212.98</span>
             <span className="item-quantity">Quantity: 2</span>
           </div>
         </div>
