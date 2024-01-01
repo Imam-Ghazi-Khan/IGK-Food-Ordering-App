@@ -9,8 +9,10 @@ const Cart = () => {
       <div className="cart-items">
         <div className="cart-item">
           <span className="item-name">Item Name</span>
-          <span className="item-price">$10.99</span>
-          <span className="item-quantity">Quantity: 2</span>
+          <div className = "itemPriceAndQuantity">
+            <span className="item-price">$10.99</span>
+            <span className="item-quantity">Quantity: 2</span>
+          </div>
         </div>
       </div>
       <div className="cart-total">

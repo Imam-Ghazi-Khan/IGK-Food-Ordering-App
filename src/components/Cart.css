@@ -28,6 +28,11 @@
     margin-bottom: 5px;
   }
   
+  .itemPriceAndQuantity{
+    display: flex;
+    justify-content: space-between;
+  }
+
   .item-price {
     color: #777;
     margin-bottom: 5px;
