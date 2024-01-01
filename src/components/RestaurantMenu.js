@@ -32,8 +32,6 @@ const RestaurantMenu = () => {
 
   const {id,name,cuisines,costForTwoMessage} = restaurantDetails?.info
 
-
-
   return (
     <div className='menu-container'>
       <div className='menu-header'>
