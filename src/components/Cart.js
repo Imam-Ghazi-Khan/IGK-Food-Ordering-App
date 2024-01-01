@@ -17,7 +17,7 @@ const Cart = () => {
       </div>
       <div className="cart-total">
         <span>Total:</span>
-        <span className="total-price">$21.98</span>
+        <span className="total-price">₹212.98</span>
       </div>
       <button className="checkout-button">Proceed to Checkout</button>
     </div>
