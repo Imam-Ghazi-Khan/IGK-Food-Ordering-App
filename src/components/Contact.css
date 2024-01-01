@@ -36,11 +36,18 @@ body {
   .contact-form input,
   .contact-form textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 8px;
+    padding: 12px;
+    border-radius: 25px;
+    border: solid rgb(182, 205, 228);
+    outline-style: none;
+    resize: none;
+  }
+
+  textarea{
+    height: 120px;
   }
   
   .contact-form button {
