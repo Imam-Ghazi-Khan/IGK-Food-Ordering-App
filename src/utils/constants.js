@@ -1145,6 +1145,13 @@ export const itemCardsDataIfAPIFails = [
         name: "Onion Pizza"
       }
     }
+  },
+  {
+    card: {
+      info: {
+        name: "Due to Cors error, displaying dummy data of Pizza Hut, you may use Cors extention to fetch data from swiggy"
+      }
+    }
   }
 ];
 
