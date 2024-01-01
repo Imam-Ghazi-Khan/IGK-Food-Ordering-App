@@ -48,7 +48,7 @@
     color: #333;
   }
   
-  .checkout-button {
+  /* .checkout-button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -64,4 +64,22 @@
   .checkout-button:hover {
     background-color: rgb(91, 129, 168);
   }
+   */
+
+  .checkout-button {
+    display: block;
+    width: 100%;
+    margin: 10px;
+    cursor: pointer;
+    background-color: rgb(91, 129, 168);
+    border: none;
+    color: white;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 17px;
+    transition: background-color 0.3s ease;
+  }
   
+  .checkout-button:hover {
+    background-color: #5c8ca3;
+  }
