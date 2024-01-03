@@ -34,6 +34,20 @@
     cursor: pointer;
   }
   
+
+  .login-btn{
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(91, 129, 168);
+    border: none;
+    color: white;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 17px;
+    transition: background-color 0.3s ease;
+  }
+
   .res-container {
     display: flex;
     flex-wrap: wrap;
@@ -130,6 +144,23 @@
       align-items: center;
     }
   
+    /* .nav-items > ul {
+      font-size: 18px;
+      display: flex;
+      list-style-type: none;
+      padding: 0px 0px;
+    } */
+    
+    .nav-items > ul > li {
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    
+
+
+
     .nav-items > ul {
       padding: 0;
     }
