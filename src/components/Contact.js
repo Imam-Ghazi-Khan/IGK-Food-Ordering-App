@@ -23,7 +23,7 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    // Additional logic after form submission if needed
+    //logic after form submission
   }, [formSubmitted]);
 
   return (

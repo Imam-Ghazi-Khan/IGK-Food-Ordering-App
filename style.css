@@ -144,12 +144,6 @@
       align-items: center;
     }
   
-    /* .nav-items > ul {
-      font-size: 18px;
-      display: flex;
-      list-style-type: none;
-      padding: 0px 0px;
-    } */
     
     .nav-items > ul > li {
       padding: 0;
@@ -159,14 +153,12 @@
     }
     
 
-
-
     .nav-items > ul {
       padding: 0;
     }
   
     .res-container {
-      padding-left: 10px; /* Adjust the padding for smaller screens */
+      padding-left: 10px;
     }
   
     .filter {

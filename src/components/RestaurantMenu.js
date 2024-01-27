@@ -30,6 +30,7 @@ const RestaurantMenu = () => {
   fetchData();
   },[])
 
+
   const {id,name,cuisines,costForTwoMessage} = restaurantDetails?.info
 
   return (
