@@ -1,7 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import dataIfAPIFails, { SWIGGY_URL, SWIGGY_URL1, SWIGGY_URL2 } from "../utils/constants";
 import { useEffect, useState } from "react";
-import dataIfAPIFails from "../utils/constants";
 import { Link } from "react-router-dom";
 
 const Body = () => {
@@ -62,7 +61,7 @@ const Body = () => {
                 <button onClick={
                     () => {                     
                         const filteredList = listOfRestaurants.filter(
-                            (res) => res?.card?.card?.info?.avgRating > 4
+                            (res) => res?.card?.card?.info?.avgRating && res.card.card.info.avgRating > 4
                         )
                         setListOfRestaurants(filteredList);
                     }

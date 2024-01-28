@@ -3,33 +3,13 @@ import { SWIGGY_URL_MENU, itemCardsDataIfAPIFails, menuDataIfAPIFails } from '..
 import RestraurantCard from './RestaurantCard';
 import { useParams } from 'react-router-dom';
 import './RestaurantMenu.css'; 
+import useRestaurantMenu from '../utils/useRestaurantMenu';
 
 const RestaurantMenu = () => {
 
   const {resId} = useParams();
-  //console.log(resId)
 
-  const [restaurantDetails,setRestaurantDetails] = useState(menuDataIfAPIFails);
-
-  const [itemCards,setItemCards] = useState(itemCardsDataIfAPIFails);
-
-  useEffect(()=>{
-    const fetchData = async () => {
-      try{
-        const data = await fetch(SWIGGY_URL_MENU+resId);
-        const json = await data.json();
-        const menu = json?.data?.cards[0]?.card?.card
-        setRestaurantDetails(menu);
-        const itemCards = json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards
-        setItemCards(itemCards);
-        console.log(itemCards);
-      }catch(e){
-        console.log("Error Fetching Data hence loading dummy data");
-      }
-  }       
-  fetchData();
-  },[])
-
+  const {restaurantDetails,itemCards} = useRestaurantMenu(resId);
 
   const {id,name,cuisines,costForTwoMessage} = restaurantDetails?.info
 
@@ -51,4 +31,4 @@ const RestaurantMenu = () => {
   );
 };
 
-export default RestaurantMenu
+export default RestaurantMenu;
