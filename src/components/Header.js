@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import LOGO from '../../images/igk_logo.png'
 import { Link } from 'react-router-dom';
-import Grocery from './Grocery';
 
 
 const Header = () => {
