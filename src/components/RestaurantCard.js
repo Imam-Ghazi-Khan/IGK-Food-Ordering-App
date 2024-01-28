@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
 import { Shimmer } from "./Shimmer";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";                                    
 
 const RestraurantCard = (props) => {
     const { resData } = props;

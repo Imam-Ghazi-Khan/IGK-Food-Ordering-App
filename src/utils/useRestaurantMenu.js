@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { itemCardsDataIfAPIFails, menuDataIfAPIFails } from "./constants";
+import { SWIGGY_URL_MENU, itemCardsDataIfAPIFails, menuDataIfAPIFails } from "./constants";
 
 const useRestaurantMenu = (resId) => {
     const [restaurantDetails,setRestaurantDetails] = useState(menuDataIfAPIFails);

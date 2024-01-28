@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import dataIfAPIFails, { SWIGGY_URL, SWIGGY_URL1, SWIGGY_URL2 } from "../utils/constants";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     const [listOfRestaurants,setListOfRestaurants] = useState([]);
@@ -27,6 +28,10 @@ const Body = () => {
     fetchData();
    },[]);
    
+   const isOnline = useOnlineStatus();
+   if(!isOnline) return (<h1>Please check your internet</h1>);
+
+
     return (
         <div className="body">
             <div className="filter">
