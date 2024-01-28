@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import LOGO from '../../images/igk_logo.png'
 import { Link } from 'react-router-dom';
+import Grocery from './Grocery';
 
 
 const Header = () => {
@@ -23,6 +24,9 @@ const Header = () => {
                 </li>
                 <li>
                     <Link className='link' to={"/contact"}>Contact</Link>
+                </li>
+                <li>
+                    <Link className='link' to={"/grocery"}>Grocery</Link>
                 </li>
                 <li>
                     <Link className='link' to={"/cart"}>Cart</Link>
