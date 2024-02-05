@@ -3,6 +3,7 @@ import LOGO from '../../images/igk_logo.png';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import UserContext from '../utils/UserContext';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [btnName, setBtnName] = useState('Login');
@@ -11,6 +12,8 @@ const Header = () => {
 
   const {loggedInUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext);
 
+  const cartItems = useSelector((store)=> store.cart.items);
+ 
   return (
     <div className='fixed top-0 left-0 right-0 flex flex-col justify-between bg-blue-100 shadow-lg md:flex-row z-10'>
       <div className='flex items-center justify-between p-4 md:p-0'>
@@ -45,8 +48,8 @@ const Header = () => {
           <li className='px-4'>
             <Link to={'/grocery'}>Grocery</Link>
           </li>
-          <li className='px-4'>
-            <Link to={'/cart'}>Cart</Link>
+          <li className='px-4 font-bold text-xl'>
+            <Link to={'/cart'}>Cart : ({cartItems.length} items)</Link>
           </li>
           <li>
             {isLoggedIn && loggedInUser}
