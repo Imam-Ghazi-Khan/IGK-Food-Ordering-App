@@ -1,44 +1,45 @@
 import { Link } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
-import { Shimmer } from "./Shimmer";
 import { useEffect, useState } from "react";                                    
+import Shimmer from "./Shimmer";
 
 const RestraurantCard = (props) => {
+    // console.log(props);
     const { resData } = props;
-    
 
     //since for fail safe, mock data is already there, have to simulate Shimmer loading with set time-out
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchData = () => {
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 1000); 
-        };
 
-        fetchData();
-    }, []); 
-
-    if (isLoading) {
-        return <Shimmer />;
-    }
+    if(resData===null) return <Shimmer/>;
 
     //loading actual data 
 
-    const { id, cloudinaryImageId, name, cuisines, avgRating, sla } = resData;
+    const { id, cloudinaryImageId, name, cuisines, avgRating, sla,isOpen } = resData?.info;
 
     return (
-        <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+        <div className="m-4 p-4 w-[220px] h-[350px] rounded-lg bg-gray-100 hover:bg-gray-200">
             <div className="card-content">
-                <img className="res-logo" alt="res-logo" src={CDN_URL + cloudinaryImageId} />
-                <h3>{name}</h3>
+                <img className="res-logo rounded-lg" alt="res-logo" src={CDN_URL + cloudinaryImageId} />
+                <h3 className="font-bold py-4 text-lg">{name}</h3>
                 <h4>{cuisines.join(", ")}</h4>
+                <br/>
                 <h4>{avgRating} stars</h4>
                 <h4>{sla.deliveryTime} minutes</h4>
             </div>
         </div>
     );
 };
+
+export const withOpenLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+        <div>
+            <label className="absolute bg-black text-white m-2 p-2 rounded-lg">Open</label>
+            <RestaurantCard {...props}/>
+        </div>
+        )
+    }
+}
+
 
 export default RestraurantCard;

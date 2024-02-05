@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class UserClass extends React.Component{
 
@@ -45,10 +46,16 @@ class UserClass extends React.Component{
         if(email==null) email = " igkhan1710@gmail.com";
         
         return (
+            
         <div>
+            <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h2>Logged-in User : <span>{loggedInUser}</span></h2>
+            )}
+          </UserContext.Consumer>
             <h2>Developed by: {name}</h2>
             <p>Email:{email}</p>
-            <button className="btn" onClick={()=>{
+            <button className="px-4 py-2 bg-blue-100 m-4 rounded-lg" onClick={()=>{
                 if(emailNumber==0){
                     this.setState({userInfo : {email:" cse2020070@rcciit.org.in"},emailNumber:1});
                 }

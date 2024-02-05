@@ -1,45 +1,82 @@
-import { useState } from 'react';
-import LOGO from '../../images/igk_logo.png'
+import { useContext, useState } from 'react';
+import LOGO from '../../images/igk_logo.png';
 import { Link } from 'react-router-dom';
-
+import useOnlineStatus from '../utils/useOnlineStatus';
+import UserContext from '../utils/UserContext';
 
 const Header = () => {
+  const [btnName, setBtnName] = useState('Login');
 
-    const [btnName,setBtnName] = useState("Login");
+  const isOnline = useOnlineStatus();
 
-    return <div className="header">
-        <Link className='link' to={"/"}>
-            <div className="logo-container">
-                <img className="logo" src={LOGO} alt="Food Logo"/>
-            </div>
+  const {loggedInUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext);
+
+  return (
+    <div className='fixed top-0 left-0 right-0 flex flex-col justify-between bg-blue-100 shadow-lg md:flex-row z-10'>
+      <div className='flex items-center justify-between p-4 md:p-0'>
+        <Link to={'/'}>
+          <div className=''>
+            <img className='' src={LOGO} alt='Food Logo' />
+          </div>
         </Link>
-        <div className="nav-items">
-            <ul>
-                <li>
-                    <Link className='link' to={"/"}>Home</Link>
-                </li>
-                <li>
-                    <Link className='link' to={"/about"}>About</Link>
-                </li>
-                <li>
-                    <Link className='link' to={"/contact"}>Contact</Link>
-                </li>
-                <li>
-                    <Link className='link' to={"/grocery"}>Grocery</Link>
-                </li>
-                <li>
-                    <Link className='link' to={"/cart"}>Cart</Link>
-                </li>
-                <button className='login-btn'
-                onClick={()=>{
-                    btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-                }}
-                >
-                    {btnName}
-                </button>
-            </ul>
-        </div>
+        <button
+          className='px-4 md:hidden'
+          onClick={() => {
+            btnName === 'Login' ? setBtnName('Logout') : setBtnName('Login');
+          }}
+        >
+          {btnName}
+        </button>
+      </div>
+      <div className='flex md:items-center'>
+        <ul className='flex p-4 m-4 items-center'>
+          <li className='hidden md:inline px-4 w-40'>
+            Online Status: {isOnline ? '✅' : '🔴'}
+          </li>
+          <li className='px-4'>
+            <Link to={'/'}>Home</Link>
+          </li>
+          <li className='px-4'>
+            <Link to={'/about'}>About</Link>
+          </li>
+          <li className='px-4'>
+            <Link to={'/contact'}>Contact</Link>
+          </li>
+          <li className='px-4'>
+            <Link to={'/grocery'}>Grocery</Link>
+          </li>
+          <li className='px-4'>
+            <Link to={'/cart'}>Cart</Link>
+          </li>
+          <li>
+            {isLoggedIn && loggedInUser}
+          </li>
+          <li>
+            <button
+            className='px-4 md:visible'
+            onClick={() => {
+              if(btnName=='Login'){
+                setBtnName('Logout');
+                setIsLoggedIn(true);
+              }
+              else{
+                setIsLoggedIn(false);
+                setBtnName('Login');
+              }
+            }}
+            >
+            {btnName}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div className='md:hidden p-4'>
+        <p>
+          Online Status: {isOnline ? '✅' : '🔴'}
+        </p>
+      </div>
     </div>
-}
+  );
+};
 
 export default Header;

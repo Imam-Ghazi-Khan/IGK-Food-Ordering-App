@@ -1,84 +1,95 @@
-import RestaurantCard from "./RestaurantCard";
-import dataIfAPIFails, { SWIGGY_URL, SWIGGY_URL1, SWIGGY_URL2 } from "../utils/constants";
-import { useEffect, useState } from "react";
+import RestaurantCard, { withOpenLabel, withPromotedLabel } from "./RestaurantCard";
+import  { SWIGGY_URL, SWIGGY_URL1, SWIGGY_URL2 } from "../utils/constants";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurants from "../utils/useRestaurants";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
-    const [listOfRestaurants,setListOfRestaurants] = useState([]);
-    const [cachedRestaurants,setCachedRestaurants] = useState([]);
-    const [searchBoxInput,setSearchBoxInput] = useState([]);
-   
-   useEffect(()=>{
-    const fetchData = async () => {
-        try{
-            const data = await fetch(SWIGGY_URL);
-            const json = await data.json();
-            //Optional Chaining
-            const removedFirst2RestaurantCards = json?.data?.cards?.slice(2);
-            setListOfRestaurants(removedFirst2RestaurantCards);
-            setCachedRestaurants(removedFirst2RestaurantCards);
-        }catch(error){
-            console.log("api fetch failed due to cors error,hence loading mock data(use cors extension if you need live data)");
-            const dummyDataIfAPIFails = dataIfAPIFails?.data?.cards?.slice(2);
-            setListOfRestaurants(dummyDataIfAPIFails);
-            setCachedRestaurants(dummyDataIfAPIFails);
-        }
-    }       
-    fetchData();
-   },[]);
-   
-   const isOnline = useOnlineStatus();
-   if(!isOnline) return (<h1>Please check your internet</h1>);
 
+    const {loggedInUser,setUserName,isLoggedIn,setIsLoggedIn} = useContext(UserContext);
+
+    const [searchBoxInput,setSearchBoxInput] = useState([]);
+
+    const {listOfRestaurants,setListOfRestaurants,cachedRestaurants,setCachedRestaurants} = useRestaurants(SWIGGY_URL); 
+
+    const RestaurantCardOpen = withOpenLabel(RestaurantCard);
+    
+    const isOnline = useOnlineStatus();
+    if(!isOnline) return (<h1>Please check your internet</h1>);
 
     return (
         <div className="body">
-            <div className="filter">
+            <div className="flex justify-center">
+                {   !isLoggedIn 
+                    && 
+                    <input
+                        className="border border-solid border-black rounded-lg p-2 m-2"
+                        type="text" 
+                        value={loggedInUser}
+                        placeholder="Enter your user name"
+                        onChange={e=>setUserName(e.target.value)}
+                    />
+                }
+            </div>
+
+            <div className="filter flex justify-center">
+
+                
                 
                 <div className="search">
+
                     <input
-                        className="search-box"
+                        className="border border-solid border-black rounded-lg p-2"
                         type="text" 
                         value={searchBoxInput}
                         placeholder="Search by name or cuisine.."
                         onChange={e=>setSearchBoxInput(e.target.value)}
                     />
-                    <button onClick={
+
+                    <button className="px-4 py-2 bg-blue-100 m-4 rounded-lg" onClick={
                         ()=>{
-                            if(!searchBoxInput){
-                                setListOfRestaurants(cachedRestaurants);
-                            }
-                            else{
                                 try{
                                     let filteredList = cachedRestaurants.filter((restaurant) =>
-                                    restaurant.card.card.info.name.toLowerCase().includes(searchBoxInput.toLowerCase()) ||
-                                    restaurant.card.card.info.cuisines.join("").toLowerCase().includes(searchBoxInput.toLowerCase()));
+                                    restaurant.info.name.toLowerCase().includes(searchBoxInput.toLowerCase()) ||
+                                    restaurant.info.cuisines.join("").toLowerCase().includes(searchBoxInput.toLowerCase()));
                                     setListOfRestaurants(filteredList);
                                 }catch(error){
                                     console.log("please type something in search box");
+                                    setListOfRestaurants(cachedRestaurants);
                                 }
-                            }
                         }
-                    } className="search-btn">Search</button>
-                </div>
+                    }>Search</button>
 
-                <button onClick={
-                    () => {                     
-                        const filteredList = listOfRestaurants.filter(
-                            (res) => res?.card?.card?.info?.avgRating && res.card.card.info.avgRating > 4
-                        )
-                        setListOfRestaurants(filteredList);
-                    }
-                } className="filter-btn">Top Rated Restraurant</button>
+                    <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick={
+                        () => {                     
+                            const filteredList = listOfRestaurants.filter(
+                                (restaurants) => restaurants?.info?.avgRating && restaurants?.info?.avgRating > 4.5
+                                
+                            );
+                            setListOfRestaurants(filteredList);
+                        }
+                    }>Top Rated Restraurant
+                    </button>
+                
+                </div>
 
             </div>
 
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {
-                  listOfRestaurants.map( restaurantObj => {
-                    const restaurant = restaurantObj?.card?.card?.info
-                    return <Link className="link" to={"/restaurants/"+restaurant?.id} key={restaurant?.id}><RestaurantCard resData={restaurant}/></Link>
+                listOfRestaurants.map( restaurant => {
+                    try{
+                        return <Link className="link" to={"/restaurants/"+restaurant?.info?.id} key={restaurant?.info?.id}>
+                            {
+                                restaurant.info.isOpen ? (<RestaurantCardOpen resData={restaurant}/>):(<RestaurantCard resData={restaurant}/>)
+                            }
+                            </Link>
+                    }
+                    catch(error){
+                        return <h1>{error}</h1>
+                    }
                 }) 
                 }
             </div>

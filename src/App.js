@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"
+import React, { lazy, Suspense, useState } from "react"
 import ReactDOM from "react-dom/client"
 import Header from "./components/Header.js"
 import Body from "./components/Body.js"
@@ -8,16 +8,25 @@ import Error from "./components/Error.js"
 import Contact from "./components/Contact.js"
 import RestaurantMenu from "./components/RestaurantMenu.js"
 import Cart from "./components/Cart.js"
+import UserContext from "./utils/UserContext.js"
 
 const Grocery = lazy(()=>import("./components/Grocery"));
 
+const AppLayout = () => {
 
-const AppLayout = () => (
+    const [userName,setUserName] = useState();
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    return (
+    <UserContext.Provider value={{loggedInUser:userName,setUserName,isLoggedIn,setIsLoggedIn}}>
     <div className="app">
         <Header/>
         <Outlet/>
     </div>
-)
+    </UserContext.Provider>
+    );
+};
   
 const appRouter = createBrowserRouter([
     {

@@ -1,12 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
-import './Contact.css'; // Import the CSS file
 
-const Contact = () => {
+const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
+    message: ''
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -23,49 +21,54 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    //logic after form submission
+    // Additional logic after form submission
   }, [formSubmitted]);
 
   return (
-    <div className="contact-container">
-      <div className="contact-form">
-        <h1>Contact Us</h1>
+    <div className="flex items-center justify-center">
+      <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md">
+        <h1 className="text-2xl font-bold mb-4 text-blue-400">Contact Us</h1>
         {formSubmitted ? (
           <div>
-            <p>Thank you for contacting us! We will get back to you soon.</p>
+            <p className="text-blue-400">Thank you for contacting us! We will get back to you soon.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <label>
-              Name:
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-gray-700">Name:</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400"
               />
-            </label>
-            <br />
-            <label>
-              Email:
+            </div>
+            <div>
+              <label className="block text-gray-700">Email:</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400"
               />
-            </label>
-            <br />
-            <label>
-              Message:
+            </div>
+            <div>
+              <label className="block text-gray-700">Message:</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400"
               />
-            </label>
-            <br />
-            <button type="submit">Submit</button>
+            </div>
+            <button
+              type="submit"
+              className="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-indigo"
+            >
+              Submit
+            </button>
           </form>
         )}
       </div>
@@ -73,4 +76,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactUs;
