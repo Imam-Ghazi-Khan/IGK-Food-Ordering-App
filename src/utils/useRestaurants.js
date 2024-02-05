@@ -12,13 +12,14 @@ const useRestaurants = (URL) => {
                 const data = await fetch(URL);
                 const json = await data.json();
                 //Optional Chaining
-                const removedFirst2RestaurantCards = json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+                const removedFirst2RestaurantCards = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                 if (removedFirst2RestaurantCards) {
                     setListOfRestaurants(removedFirst2RestaurantCards);
                     setCachedRestaurants(removedFirst2RestaurantCards);
                 }
             }catch(error){
                 console.log("api fetch failed due to cors error,hence loading mock data(use cors extension if you need live data)");
+                console.log(error);
             }
         }       
         fetchData();
