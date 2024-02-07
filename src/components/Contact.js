@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ContactUs = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,6 +42,7 @@ const ContactUs = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400"
+                placeholder='name'
               />
             </div>
             <div>
@@ -52,6 +53,7 @@ const ContactUs = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400"
+                placeholder='email'
               />
             </div>
             <div>
@@ -61,6 +63,7 @@ const ContactUs = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400"
+                placeholder='Enter your message'
               />
             </div>
             <button
@@ -76,4 +79,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Contact;

@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import LOGO from '../../images/igk_logo.png';
 import { Link } from 'react-router-dom';
+import LOGO from '../images/igk_food_logo.png'
 import useOnlineStatus from '../utils/useOnlineStatus';
 import UserContext from '../utils/UserContext';
 import { useSelector } from 'react-redux';

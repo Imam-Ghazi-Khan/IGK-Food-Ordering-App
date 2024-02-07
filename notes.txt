@@ -112,3 +112,25 @@ Routing
     -Server Side Routing:Does a network call and fetches html
 
     behind the scenes Link  uses anchor tag.....Link(given by react-router-dom) is a wrapper around anchor tag 
+
+
+
+Type of testing(developer)-
+    - Unit testing  (testing one unit in isolation(small part))
+    - Integration testing(Testing integration of application)
+
+    - End to end testing - e2e testing
+
+Jest is JS testing framework, and react testing library uses jest...and dom testing library(which internally uses jest)
+
+Setting up testing in our app  
+    - Install React Testing library
+    - Install jest
+    - Install babel dependencies
+    - Configure babel
+    - Configure parcel config file to disable default babel transpilation
+    - Jest configuration : npx jest --init
+    - Install jsdom Library
+    - Add @babel/preset-react for jsx in test
+    - Include @babel/preset-react inside my babel
+    - Install @testing-library/jest-dom

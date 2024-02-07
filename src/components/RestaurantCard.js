@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
 const RestraurantCard = (props) => {
-    // console.log(props);
     const { resData } = props;
+    console.log(resData);
 
     //since for fail safe, mock data is already there, have to simulate Shimmer loading with set time-out
 
