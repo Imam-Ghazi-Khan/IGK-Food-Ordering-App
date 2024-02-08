@@ -27,6 +27,7 @@ const Body = () => {
                     <input
                         className="border border-solid border-black rounded-lg p-2 m-2"
                         type="text" 
+                        data-testid = "searchInput"
                         value={loggedInUser}
                         placeholder="Enter your user name"
                         onChange={e=>setUserName(e.target.value)}
@@ -80,16 +81,11 @@ const Body = () => {
             <div className="flex flex-wrap">
                 {
                 listOfRestaurants.map( restaurant => {
-                    try{
-                        return <Link className="link" to={"/restaurants/"+restaurant?.info?.id} key={restaurant?.info?.id}>
-                            {
-                                restaurant.info.isOpen ? (<RestaurantCardOpen resData={restaurant}/>):(<RestaurantCard resData={restaurant}/>)
-                            }
-                            </Link>
-                    }
-                    catch(error){
-                        return <h1>{error}</h1>
-                    }
+                    return <Link className="link" to={"/restaurants/"+restaurant?.info?.id} key={restaurant?.info?.id}>
+                        {
+                            restaurant.info.isOpen ? (<RestaurantCardOpen resData={restaurant}/>):(<RestaurantCard resData={restaurant}/>)
+                        }
+                        </Link>
                 }) 
                 }
             </div>
