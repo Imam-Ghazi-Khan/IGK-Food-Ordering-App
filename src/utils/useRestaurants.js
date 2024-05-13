@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import mockResListData from "../mocks/mockResListData.json"
 
 const useRestaurants = (URL) => {
 
@@ -20,6 +20,8 @@ const useRestaurants = (URL) => {
             }catch(error){
                 console.log("api fetch failed due to cors error,hence loading mock data(use cors extension if you need live data)");
                 console.log(error);
+                setListOfRestaurants(mockResListData);
+                setCachedRestaurants(mockResListData);
             }
         }       
         fetchData();

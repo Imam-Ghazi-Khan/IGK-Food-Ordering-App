@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import ItemList from './ItemList';
 import { useDispatch, useSelector } from 'react-redux';

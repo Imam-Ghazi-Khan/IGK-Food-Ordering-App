@@ -25,7 +25,7 @@ To fix the non-working example, you should import the image using the `import` s
 
 Props are normal arguments to a function
 
-Config driver UI: Controlling UI using config(data). Data different for Delhi,Kolkata,etc(like they might have different offers)
+Config driven UI: Controlling UI using config(data). Data different for Delhi,Kolkata,etc(like they might have different offers)
 
 
 
@@ -51,7 +51,7 @@ Reconciliation Algorithm(after React16 came in React Fiber which is new way of f
   0   0   0  0   0    ->        0   0    0
   (restaurant cards)            (restaurant cards)
 
-Diff algo finds the difference between old virtual DOM and new virtual DOM,and then calculate it and update the DOM on every render cycle
+Diff algo finds the difference between old virt ual DOM and new virtual DOM,and then calculate it and update the DOM on every render cycle
 
 
 Virtual DOM is representation of actual DOM(actual dom -> the tags like <div></div>)

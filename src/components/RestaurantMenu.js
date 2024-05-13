@@ -11,13 +11,13 @@ const RestaurantMenu = () => {
 
   const {resId} = useParams();
 
-  const resInfo = useRestaurantMenu(resId);
-  // const resInfo = MOCK;
+  // const resInfo = useRestaurantMenu(resId);
+  const resInfo = MOCK;
 
   console.log(resInfo);
 
 
-  const [showIndex,setShowIndex] = useState(null);
+  const [showIndex,setShowIndex] = useState(resInfo);
 
   if(resInfo===null) return <Shimmer/>;
 
