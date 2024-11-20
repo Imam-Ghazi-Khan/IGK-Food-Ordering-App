@@ -25,7 +25,7 @@ const Header = () => {
       <div className='flex md:items-center'>
         <ul className='flex p-4 m-4 items-center'>
           <li className='hidden md:inline px-4 w-40'>
-            Online Status: {isOnline ? '✅' : '🔴'}
+             {isOnline ? '🟢' : '🔴'}
           </li>
           <li className='px-4'>
             <Link to={'/'}>Home</Link>
