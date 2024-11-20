@@ -6,7 +6,6 @@ import UserContext from '../utils/UserContext';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const [btnName, setBtnName] = useState('Login');
 
   const isOnline = useOnlineStatus();
 
@@ -22,14 +21,6 @@ const Header = () => {
             <img className='' src={LOGO} alt='Food Logo' />
           </div>
         </Link>
-        <button
-          className='px-4 md:hidden'
-          onClick={() => {
-            btnName === 'Login' ? setBtnName('Logout') : setBtnName('Login');
-          }}
-        >
-          {btnName}
-        </button>
       </div>
       <div className='flex md:items-center'>
         <ul className='flex p-4 m-4 items-center'>
@@ -51,31 +42,12 @@ const Header = () => {
           <li className='px-4'>
             <Link to={'/cart'}>Cart : ({cartItems.length} items)</Link>
           </li>
-          <li>
-            {isLoggedIn && loggedInUser}
-          </li>
-          <li>
-            <button
-            className='px-4 md:visible'
-            onClick={() => {
-              if(btnName=='Login'){
-                setBtnName('Logout');
-                setIsLoggedIn(true);
-              }
-              else{
-                setIsLoggedIn(false);
-                setBtnName('Login');
-              }
-            }}
-            >
-            {btnName}
-            </button>
-          </li>
+         
         </ul>
       </div>
       <div className='md:hidden p-4'>
         <p>
-          Online Status: {isOnline ? '✅' : '🔴'}
+          {isOnline ? '✅' : '🔴'}
         </p>
       </div>
     </div>
