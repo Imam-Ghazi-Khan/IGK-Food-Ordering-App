@@ -21,19 +21,7 @@ const Body = () => {
 
     return (
         <div className="body">
-            <div className="flex justify-center">
-                {   !isLoggedIn 
-                    && 
-                    <input
-                        className="border border-solid border-black rounded-lg p-2 m-2"
-                        type="text" 
-                        data-testid = "searchInput"
-                        value={loggedInUser}
-                        placeholder="Enter your user name"
-                        onChange={e=>setUserName(e.target.value)}
-                    />
-                }
-            </div>
+          
 
             <div className="filter flex justify-center">
 
