@@ -24,7 +24,7 @@ const ItemList = ({items}) =>{
                     <div className="absolute bottom-0 left-0 right-0">
                         <button className="py-2 px-8 mx-8 rounded-lg bg-white text-blue-400 font-bold shadow-lg text-xs"
                             onClick={()=>handleAddItem(item)}>
-                            ADD +
+                            ADD+
                         </button>
                     </div>
                     <img src={CDN_URL+ item.card.info.imageId} className="w-full"></img>
